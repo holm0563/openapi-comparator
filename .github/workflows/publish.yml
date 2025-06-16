@@ -21,13 +21,12 @@ jobs:
         id: extract_tag
         run: |
           TAG_NAME=${{ github.event.release.tag_name }}
-          # Clean tag (e.g., remove 'v', replace hyphens for NuGet compatibility)
-          CLEANED_TAG=$(echo "$TAG_NAME" | sed 's/^v//' | sed 's/-//g')
-          echo "CLEANED_TAG=$CLEANED_TAG" >> $GITHUB_OUTPUT
+          CLEANED_VERSION=$(echo "$TAG_NAME" | sed 's/^v//')
+          echo "CLEANED_VERSION=$CLEANED_VERSION" >> $GITHUB_OUTPUT
       - name: Build
         run: dotnet build -c Release
       - name: Pack
-        run: dotnet pack -c Release -o ${{ env.nuget_directory }} -p:Version=${{ github.event.release.tag_name }}
+        run: dotnet pack -c Release -o ${{ env.nuget_directory }} -p:Version=${{ steps.extract_tag.outputs.CLEANED_VERSION }}
       - name: Display created package files
         run: ls -R ${{ env.nuget_directory }}
       - uses: actions/upload-artifact@v4
