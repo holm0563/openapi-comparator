@@ -17,7 +17,7 @@ namespace Criteo.OpenApi.Comparator
     /// </summary>
     public class ComparisonMessage
     {
-        private const string DocBaseUrl = "https://github.com/criteo/openapi-comparator/tree/main/documentation/rules/";
+        private const string DocBaseUrl = "https://github.com/holm0563/openapi-comparator/tree/main/documentation/rules/";
 
         internal ComparisonMessage(
             ComparisonRule rule,

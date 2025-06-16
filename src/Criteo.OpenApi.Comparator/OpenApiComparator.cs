@@ -37,6 +37,14 @@ public static class OpenApiComparator
         comparisonMessages.AddRange(oldSpecDiagnostic.Errors.Select(item => new ComparisonMessage(item)));
         comparisonMessages.AddRange(newSpecDiagnostic.Errors.Select(item => new ComparisonMessage(item)));
 
+        return GetLevel(comparisonMessages);
+    }
+
+    /// <summary>
+    ///     Return the result of the collection of messages.
+    /// </summary>
+    public static ChangeLevel GetLevel(List<ComparisonMessage> comparisonMessages)
+    {
         if (!comparisonMessages.Any())
             return ChangeLevel.None;
 
