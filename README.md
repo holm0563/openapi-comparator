@@ -20,28 +20,28 @@ var result = OpenApiComparator.Compare(
 );
 ```
 
+Here is an example of how to use the Comparator with custom rules:
+```C#
+var result = OpenApiComparator.Compare(
+    out var differences,
+    oldOpenApiSpec,
+    newOpenApiSpec
+);
+
+// Ignore codes
+differences.RemoveAll(s => s.Code is "VersionsReversed" or "NoVersionChange");
+// Change severity
+differences.Where(s => s.Mode == MessageType.Addition).ToList()
+                .ForEach(s => s.Severity = MessageSeverity.Info);
+// Calculate new result based on remaining rules
+var newResult = OpenApiComparator.GetLevel(differences);
+```
+
 ## Command line tool
 
-The comparator is also available as a [command line tool](https://www.nuget.org/packages/Criteo.OpenApi.Comparator.Cli/0.1.0).
+The comparator is available at [command line tool](https://www.nuget.org/packages/Criteo.OpenApi.Comparator.Cli/0.1.0).
 
-To install it, run the command:
-```bash
-dotnet tool install -g Criteo.OpenApi.Comparator.Cli
-```
-
-You can then use the tool through the `openapi-compare` command:
-```bash
-openapi-compare -o new_oas.json -n old_oas.json -f Json
-```
-
-Available options:
-| Option           | Small   | Required | Description                                                                                                         |
-|------------------|---------|----------|---------------------------------------------------------------------------------------------------------------------|
-| `--old`          | `-o`    | `true`   | Path or URL to old OpenAPI Specification.                                                                           |
-| `--new`          | `-n`    | `true`   | Path or URL to new OpenAPI Specification.                                                                           |
-| `--outputFormat` | `-f`    | `false`  | (Default: `Json`) Specifies in which format the differences should be displayed. Possible values: `Json` \| `Text`. |
-| `--strict`       | `-s`    | `false`  | (Default: `false`) Enable strict mode: breaking changes are errors instead of warnings.                             |
-| `--help`         | `-h`    | `false`  | Log available options                                                                                               |
+The CLI has not yet been included as part of this fork.
 
 ## Comparison rules
 
@@ -86,9 +86,3 @@ Any contribution is more than welcomed. For now, no specific rule must be applie
 
 OpenApi Comparator is an Open Source software released under the [Apache 2.0 license](https://github.com/criteo/openapi-comparator/blob/main/LICENCE).
 
-## Developer guide
-
-Simply use the dotnet cli. For example, to run the tests:
-```bash
-dotnet test
-```
