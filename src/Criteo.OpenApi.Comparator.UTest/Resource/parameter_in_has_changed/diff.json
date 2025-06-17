@@ -1,7 +1,7 @@
 [
   {
     "Severity": "Warning",
-    "Message": "How the parameter is passed has changed -- it used to be \u0027query\u0027, now it is \u0027header\u0027.",
+    "Message": "How the parameter is passed has changed -- it used to be 'query', now it is 'header'.",
     "OldJsonRef": "#/paths/~1api~1Parameters/put/parameters/0/in",
     "NewJsonRef": "#/paths/~1api~1Parameters/put/parameters/0/in",
     "OldJsonPath": "#/components/parameters/skipParam/in",
@@ -12,13 +12,35 @@
   },
   {
     "Severity": "Warning",
-    "Message": "How the parameter is passed has changed -- it used to be \u0027query\u0027, now it is \u0027header\u0027.",
+    "Message": "Parameter 'skipParam' has a different style value in the new version.",
+    "OldJsonRef": "#/paths/~1api~1Parameters/put/parameters/0/style",
+    "NewJsonRef": "#/paths/~1api~1Parameters/put/parameters/0/style",
+    "OldJsonPath": "#/components/parameters/skipParam/style",
+    "NewJsonPath": "#/components/parameters/skipParam/style",
+    "Id": 10281,
+    "Code": "ParameterStyleChanged",
+    "Mode": "Update"
+  },
+  {
+    "Severity": "Warning",
+    "Message": "How the parameter is passed has changed -- it used to be 'query', now it is 'header'.",
     "OldJsonRef": "#/paths/~1api~1Parameters/put/parameters/1/in",
     "NewJsonRef": "#/paths/~1api~1Parameters/put/parameters/1/in",
     "OldJsonPath": "#/components/parameters/limitParam/in",
     "NewJsonPath": "#/components/parameters/limitParam/in",
     "Id": 1015,
     "Code": "ParameterInHasChanged",
+    "Mode": "Update"
+  },
+  {
+    "Severity": "Warning",
+    "Message": "Parameter 'limitParam' has a different style value in the new version.",
+    "OldJsonRef": "#/paths/~1api~1Parameters/put/parameters/1/style",
+    "NewJsonRef": "#/paths/~1api~1Parameters/put/parameters/1/style",
+    "OldJsonPath": "#/components/parameters/limitParam/style",
+    "NewJsonPath": "#/components/parameters/limitParam/style",
+    "Id": 10281,
+    "Code": "ParameterStyleChanged",
     "Mode": "Update"
   }
 ]
