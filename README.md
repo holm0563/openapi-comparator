@@ -4,7 +4,7 @@ An OpenAPI tool to compare OpenAPI Specifications.
 
 ## C# Library
 
-The tool is available as a [nuget package](https://www.nuget.org/packages/Criteo.OpenApi.Comparator), directly usable into your C# application.
+The tool is available as a [nuget package](https://www.nuget.org/packages/Holm0563.OpenApi.Comparator), directly usable into your C# application.
 
 To install it run the command:
 ```bash
@@ -39,7 +39,7 @@ var newResult = OpenApiComparator.GetLevel(differences);
 
 ## Command line tool
 
-The comparator is available at [command line tool](https://www.nuget.org/packages/Criteo.OpenApi.Comparator.Cli/0.1.0).
+The Criteo comparator is available at [command line tool](https://www.nuget.org/packages/Criteo.OpenApi.Comparator.Cli/0.1.0).
 
 The CLI has not yet been included as part of this fork.
 
